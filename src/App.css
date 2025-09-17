@@ -1,0 +1,332 @@
+/* Reset & base */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  background: #f9fafb;
+  color: #333;
+}
+
+.container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Navbar */
+.navbar {
+  background: #1f2937;
+  color: #fff;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar .logo {
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.navbar .links button {
+  margin-left: 10px;
+  padding: 8px 16px;
+  background: #f3f4f6;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.navbar .links button:hover {
+  background: #e5e7eb;
+}
+
+/* Profile Dropdown */
+.profile-container {
+  position: relative;
+}
+
+.profile-pic {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid #fff;
+}
+
+.profile-dropdown {
+  position: absolute;
+  right: 0;
+  top: 50px;
+  background: #fff;
+  color: #333;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 10px 0;
+  min-width: 150px;
+  z-index: 50;
+}
+
+.profile-dropdown button {
+  width: 100%;
+  padding: 8px 15px;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.profile-dropdown button:hover {
+  background: #f3f4f6;
+}
+
+.profile-dropdown .logout {
+  color: #dc2626;
+}
+
+/* Content Layout */
+.content {
+  display: flex;
+  gap: 25px;
+  margin-top: 25px;
+}
+
+.berita-list {
+  flex: 3;
+}
+
+.klasemen {
+  flex: 1;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Berita Card */
+.berita-card {
+  background: #fff;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  gap: 15px;
+  transition: 0.2s;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.berita-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.berita-card img {
+  width: 160px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.berita-card .info {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.meta {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+/* News Detail */
+.news-detail img {
+  max-width: 100%;
+  margin: 20px 0;
+  border-radius: 8px;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+th, td {
+  text-align: left;
+  padding: 12px 10px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+th {
+  background: #f3f4f6;
+  font-weight: 600;
+}
+
+tr:hover {
+  background: #f9fafb;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  margin-top: 40px;
+  padding: 20px;
+  background: #1f2937;
+  color: white;
+  font-size: 14px;
+  border-top: 1px solid #374151;
+}
+
+/* Auth Page */
+.auth-page {
+  max-width: 400px;
+  margin: 80px auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.auth-page h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.auth-page input {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 15px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  outline: none;
+  transition: 0.2s;
+}
+
+.auth-page input:focus {
+  border-color: #2563eb;
+}
+
+.auth-page button {
+  width: 100%;
+  padding: 10px 12px;
+  background: #2563eb;
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.auth-page button:hover {
+  background: #1d4ed8;
+}
+
+.auth-page p {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 14px;
+}
+/* ======= Global ======= */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  background: #808080; /* abu gelap */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* ======= Auth Page ======= */
+.auth-page {
+  background: #fff;
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.auth-page h1,
+.auth-page h2 {
+  margin-bottom: 25px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #111;
+}
+
+.auth-page input {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  outline: none;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.auth-page input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 4px rgba(37, 99, 235, 0.4);
+}
+
+.auth-page button {
+  width: 100%;
+  padding: 12px;
+  background: #2563eb;
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.2s;
+}
+
+.auth-page button:hover {
+  background: #1d4ed8;
+}
+
+/* ======= Text Link ======= */
+.auth-page p {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #333;
+}
+
+.auth-page p a {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.auth-page p a:hover {
+  text-decoration: underline;
+}
+
+/* ======= Responsive ======= */
+@media (max-width: 480px) {
+  .auth-page {
+    padding: 30px 20px;
+  }
+  .auth-page h1,
+  .auth-page h2 {
+    font-size: 20px;
+  }
+  .auth-page button {
+    font-size: 14px;
+  }
+}

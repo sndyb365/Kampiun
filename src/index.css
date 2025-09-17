@@ -1,0 +1,457 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f5f5f5;
+  color: #333;
+}
+
+/* === NAVBAR === */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #111827; /* dark navy */
+  padding: 0.75rem 1.5rem;
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #f9fafb;
+  cursor: pointer;
+}
+
+.navbar-logo span {
+  font-size: 1.5rem;
+}
+
+.navbar-menu {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navbar-menu a {
+  color: #d1d5db;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease-in-out;
+}
+
+.navbar-menu a:hover {
+  color: #fff;
+}
+
+/* === HAMBURGER MENU === */
+.hamburger {
+  display: none; /* default: hidden (desktop) */
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  color: #f9fafb;
+  cursor: pointer;
+  margin-left: 1rem;
+}
+
+/* Mobile menu dropdown */
+.mobile-menu {
+  display: none;
+  position: absolute;
+  top: 60px;
+  right: 15px;
+  background: #1f2937;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  flex-direction: column;
+  min-width: 180px;
+  padding: 10px;
+  z-index: 999;
+  animation: slideDown 0.25s ease-out;
+}
+
+.mobile-menu a {
+  padding: 10px;
+  text-decoration: none;
+  color: #d1d5db;
+  font-weight: 500;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+}
+
+.mobile-menu a:hover {
+  background: #374151;
+  color: #fff;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Profile */
+.profile-container {
+  position: relative;
+}
+
+.profile-pic {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+  border: 2px solid #fff;
+  transition: transform 0.2s ease;
+}
+
+.profile-pic:hover {
+  transform: scale(1.1);
+}
+
+.profile-dropdown {
+  position: absolute;
+  right: 0;
+  top: 50px;
+  background: #1f2937;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  min-width: 160px;
+}
+
+.profile-dropdown button {
+  background: transparent;
+  border: none;
+  text-align: left;
+  padding: 8px 12px;
+  color: #d1d5db;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.2s ease;
+}
+
+.profile-dropdown button:hover {
+  background: #374151;
+  color: #fff;
+}
+
+/* === CONTAINER & SECTIONS === */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+.section {
+  margin-bottom: 40px;
+}
+
+.section h2 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #008000;
+  margin: 20px 0 10px;
+  border-left: 5px solid #008000;
+  padding-left: 8px;
+}
+
+/* === GRID === */
+.content-grid {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 20px;
+}
+
+.headlines-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* Berita Nasional dengan padding agar tidak menempel kiri */
+.berita-nasional {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/* === CARD BERITA === */
+.berita-card.list {
+  display: flex;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  background: #fff;
+  transition: transform 0.2s;
+  gap: 0.5rem;
+}
+
+.berita-card.list:hover {
+  transform: translateY(-3px);
+}
+
+.berita-card.list .thumb {
+  flex: 0 0 200px;
+  height: 120px;
+  width: 200px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.berita-card.list .thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.berita-card.list .info {
+  flex: 1;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.berita-card.list .info h3 {
+  font-size: 1rem;
+  margin: 0 0 0.2rem 0;
+}
+
+.berita-card.list .info .meta {
+  font-size: 0.8rem;
+  color: #555;
+}
+
+.berita-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.2s;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.berita-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.berita-card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+.berita-card h3 {
+  font-size: 16px;
+  margin: 8px 0;
+  color: #111;
+}
+
+.berita-card .meta {
+  font-size: 13px;
+  color: #777;
+}
+
+.berita-info,
+.berita-card.card .info {
+  padding: 10px;
+}
+
+/* Variasi kartu */
+.berita-card.card img {
+  height: 160px;
+}
+
+.berita-card.list {
+  display: flex;
+  gap: 20px;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+  box-shadow: none;
+  border-radius: 0;
+  align-items: flex-start;
+}
+
+.berita-card.list:last-child {
+  border-bottom: none;
+}
+
+.berita-card.list img {
+  width: 160px;
+  height: 100px;
+  border-radius: 6px;
+}
+
+.berita-card.list .info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.berita-card.list h3 {
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 1.4;
+  margin-bottom: 6px;
+}
+
+/* === Homepage: SEPAKBOLA NASIONAL === */
+.berita-list .berita-card.list .thumb img {
+  width: 250px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.berita-list .berita-card.list .info h3 {
+  font-size: 24px;
+  line-height: 1.3;
+}
+
+.berita-list .berita-card.list .info .meta {
+  font-size: 1rem;
+}
+
+/* Responsive untuk layar kecil */
+@media (max-width: 768px) {
+  .navbar-menu {
+    display: none;
+  }
+  .hamburger {
+    display: block;
+  }
+  .berita-nasional {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  .berita-list .berita-card.list .thumb img {
+    width: 140px;
+    height: 100px;
+  }
+  .berita-list .berita-card.list .info h3 {
+    font-size: 18px;
+  }
+  .berita-list .berita-card.list .info .meta {
+    font-size: 0.9rem;
+  }
+}
+
+.grid-berita {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.berita-grid-card {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: box-shadow 0.3s;
+  background-color: #fff;
+}
+
+.berita-grid-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.berita-grid-card .thumb {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+}
+
+.berita-grid-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+}
+
+.berita-grid-card .meta {
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.breadcrumb {
+  font-size: 14px;
+  margin-bottom: 15px;
+  color: #555;
+}
+
+.breadcrumb span {
+  cursor: default;
+}
+
+.breadcrumb span:first-child {
+  font-weight: bold;
+}
+
+/* === Klasemen === */
+.klasemen-box {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.klasemen-box h3 {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.klasemen-box table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.klasemen-box th,
+.klasemen-box td {
+  border: 1px solid #ddd;
+  padding: 5px;
+  text-align: left;
+}
+
+/* === FOOTER === */
+.footer {
+  background: #000066;
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+  margin-top: 40px;
+}
+
+/* BACK BUTTON */
+.back-btn {
+  margin: 10px 0;
+  padding: 6px 12px;
+  border: none;
+  background: #f0f0f0;
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.back-btn:hover {
+  background: #ddd;
+}

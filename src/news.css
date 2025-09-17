@@ -1,0 +1,230 @@
+/* ==========================
+   LAYOUT UTAMA
+========================== */
+.news-page {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
+  font-family: "Segoe UI", Roboto, sans-serif;
+}
+
+.news-content {
+  flex: 3;
+}
+
+.news-sidebar {
+  flex: 1;
+  min-width: 250px;
+}
+
+/* ==========================
+   HEADER & META
+========================== */
+.news-title {
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin: 0.5rem 0 1rem 0;
+  line-height: 1.3;
+}
+
+.news-category {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  background: #e63946;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+.news-meta {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+
+/* ==========================
+   GAMBAR & BODY
+========================== */
+.news-image {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.news-body {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #222;
+  margin-bottom: 2rem;
+}
+
+/* ==========================
+   TOMBOL AKSI
+========================== */
+.news-actions {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.btn-like,
+.btn-share {
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.btn-like {
+  background: #eee;
+}
+.btn-like.liked {
+  background: #e63946;
+  color: #fff;
+}
+.btn-share {
+  background: #1d3557;
+  color: #fff;
+}
+
+/* ==========================
+   COMMENTS ala Instagram
+========================== */
+/* Semua komentar dasar */
+.comment-item {
+  margin-bottom: 15px;
+}
+
+.comment-main {
+  display: flex;
+  gap: 10px;
+}
+
+.comment-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.comment-avatar-reply {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.comment-body {
+  flex: 1;
+}
+
+.comment-header {
+  display: flex;
+  gap: 10px;
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+}
+
+.comment-date {
+  color: gray;
+  font-size: 0.8rem;
+}
+
+.comment-text {
+  margin-bottom: 5px;
+}
+
+.comment-actions {
+  font-size: 0.8rem;
+  color: #555;
+  display: flex;
+  gap: 10px;
+}
+
+.comment-actions span {
+  cursor: pointer;
+}
+
+.comment-form {
+  display: flex;
+  gap: 5px;
+  margin-top: 5px;
+}
+
+.comment-form input {
+  flex: 1;
+  padding: 5px;
+}
+
+.comment-replies {
+  margin-left: 50px; /* menjorok sekali */
+  border-left: 1px solid #eee;
+  padding-left: 10px;
+}
+
+.comment-reply {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+
+/* ==========================
+   SIDEBAR
+========================== */
+.news-sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.news-sidebar li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 12px;
+  cursor: pointer;
+}
+
+.news-sidebar img {
+  width: 80px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.ep-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.ep-meta {
+  font-size: 12px;
+  color: #666;
+}
+
+.ep-category {
+  font-weight: bold;
+  color: #d32f2f;
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+@media (max-width: 768px) {
+  .news-page {
+    flex-direction: column;
+  }
+  .news-sidebar {
+    min-width: 100%;
+    margin-top: 2rem;
+  }
+}
