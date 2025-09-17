@@ -27,6 +27,35 @@
     fetch(link.href, fetchOpts);
   }
 })();
+(function polyfill2() {
+  const relList = document.createElement("link").relList;
+  if (relList && relList.supports && relList.supports("modulepreload")) return;
+  for (const link of document.querySelectorAll('link[rel="modulepreload"]')) processPreload(link);
+  new MutationObserver((mutations) => {
+    for (const mutation of mutations) {
+      if (mutation.type !== "childList") continue;
+      for (const node of mutation.addedNodes) if (node.tagName === "LINK" && node.rel === "modulepreload") processPreload(node);
+    }
+  }).observe(document, {
+    childList: true,
+    subtree: true
+  });
+  function getFetchOpts(link) {
+    const fetchOpts = {};
+    if (link.integrity) fetchOpts.integrity = link.integrity;
+    if (link.referrerPolicy) fetchOpts.referrerPolicy = link.referrerPolicy;
+    if (link.crossOrigin === "use-credentials") fetchOpts.credentials = "include";
+    else if (link.crossOrigin === "anonymous") fetchOpts.credentials = "omit";
+    else fetchOpts.credentials = "same-origin";
+    return fetchOpts;
+  }
+  function processPreload(link) {
+    if (link.ep) return;
+    link.ep = true;
+    const fetchOpts = getFetchOpts(link);
+    fetch(link.href, fetchOpts);
+  }
+})();
 function getDefaultExportFromCjs(x) {
   return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, "default") ? x["default"] : x;
 }
@@ -14207,7 +14236,6 @@ const __vitePreload = function preload(baseModule, deps, importerUrl) {
         reason
       }))));
     };
-    var allSettled = allSettled2;
     document.getElementsByTagName("link");
     const cspNonceMeta = document.querySelector("meta[property=csp-nonce]");
     const cspNonce = cspNonceMeta?.nonce || cspNonceMeta?.getAttribute("nonce");
@@ -14253,7 +14281,7 @@ const resolveFetch$3 = (customFetch) => {
     _fetch = (...args) => __vitePreload(async () => {
       const { default: fetch2 } = await Promise.resolve().then(() => browser);
       return { default: fetch2 };
-    }, true ? [] : void 0).then(({ default: fetch2 }) => fetch2(...args));
+    }, []).then(({ default: fetch2 }) => fetch2(...args));
   } else {
     _fetch = fetch;
   }
@@ -14323,7 +14351,7 @@ var __awaiter$7 = function(thisArg, _arguments, P, generator) {
     function step(result) {
       result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected);
     }
-    step((generator = generator.apply(thisArg, _arguments || [])).next());
+    step((generator = generator.apply(thisArg, [])).next());
   });
 };
 class FunctionsClient {
@@ -16867,7 +16895,7 @@ class RealtimeClient {
         _fetch = (...args) => __vitePreload(async () => {
           const { default: fetch2 } = await Promise.resolve().then(() => browser);
           return { default: fetch2 };
-        }, true ? void 0 : void 0).then(({ default: fetch2 }) => fetch2(...args)).catch((error) => {
+        }, void 0).then(({ default: fetch2 }) => fetch2(...args)).catch((error) => {
           throw new Error(`Failed to load @supabase/node-fetch: ${error.message}. This is required for HTTP requests in Node.js environments without native fetch.`);
         });
       } else {
@@ -17506,7 +17534,7 @@ var __awaiter$6 = function(thisArg, _arguments, P, generator) {
     function step(result) {
       result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected);
     }
-    step((generator = generator.apply(thisArg, _arguments || [])).next());
+    step((generator = generator.apply(thisArg, [])).next());
   });
 };
 const resolveFetch$2 = (customFetch) => {
@@ -17517,7 +17545,7 @@ const resolveFetch$2 = (customFetch) => {
     _fetch = (...args) => __vitePreload(async () => {
       const { default: fetch2 } = await Promise.resolve().then(() => browser);
       return { default: fetch2 };
-    }, true ? void 0 : void 0).then(({ default: fetch2 }) => fetch2(...args));
+    }, void 0).then(({ default: fetch2 }) => fetch2(...args));
   } else {
     _fetch = fetch;
   }
@@ -17525,7 +17553,7 @@ const resolveFetch$2 = (customFetch) => {
 };
 const resolveResponse = () => __awaiter$6(void 0, void 0, void 0, function* () {
   if (typeof Response === "undefined") {
-    return (yield __vitePreload(() => Promise.resolve().then(() => browser), true ? void 0 : void 0)).Response;
+    return (yield __vitePreload(() => Promise.resolve().then(() => browser), void 0)).Response;
   }
   return Response;
 });
@@ -17573,7 +17601,7 @@ var __awaiter$5 = function(thisArg, _arguments, P, generator) {
     function step(result) {
       result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected);
     }
-    step((generator = generator.apply(thisArg, _arguments || [])).next());
+    step((generator = generator.apply(thisArg, [])).next());
   });
 };
 const _getErrorMessage$1 = (err) => err.msg || err.message || err.error_description || err.error || JSON.stringify(err);
@@ -17669,7 +17697,7 @@ var __awaiter$4 = function(thisArg, _arguments, P, generator) {
     function step(result) {
       result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected);
     }
-    step((generator = generator.apply(thisArg, _arguments || [])).next());
+    step((generator = generator.apply(thisArg, [])).next());
   });
 };
 const DEFAULT_SEARCH_OPTIONS = {
@@ -18260,7 +18288,7 @@ var __awaiter$3 = function(thisArg, _arguments, P, generator) {
     function step(result) {
       result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected);
     }
-    step((generator = generator.apply(thisArg, _arguments || [])).next());
+    step((generator = generator.apply(thisArg, [])).next());
   });
 };
 class StorageBucketApi {
@@ -18504,7 +18532,7 @@ var __awaiter$2 = function(thisArg, _arguments, P, generator) {
     function step(result) {
       result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected);
     }
-    step((generator = generator.apply(thisArg, _arguments || [])).next());
+    step((generator = generator.apply(thisArg, [])).next());
   });
 };
 const resolveFetch$1 = (customFetch) => {
@@ -18564,7 +18592,7 @@ var __awaiter$1 = function(thisArg, _arguments, P, generator) {
     function step(result) {
       result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected);
     }
-    step((generator = generator.apply(thisArg, _arguments || [])).next());
+    step((generator = generator.apply(thisArg, [])).next());
   });
 };
 function ensureTrailingSlash(url) {
@@ -18954,7 +18982,7 @@ const resolveFetch = (customFetch) => {
     _fetch = (...args) => __vitePreload(async () => {
       const { default: fetch2 } = await Promise.resolve().then(() => browser);
       return { default: fetch2 };
-    }, true ? void 0 : void 0).then(({ default: fetch2 }) => fetch2(...args));
+    }, void 0).then(({ default: fetch2 }) => fetch2(...args));
   } else {
     _fetch = fetch;
   }
@@ -21792,7 +21820,7 @@ var __awaiter = function(thisArg, _arguments, P, generator) {
     function step(result) {
       result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected);
     }
-    step((generator = generator.apply(thisArg, _arguments || [])).next());
+    step((generator = generator.apply(thisArg, [])).next());
   });
 };
 class SupabaseClient {
